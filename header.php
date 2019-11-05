@@ -3,6 +3,11 @@
 	include_once './db/db_config.php';
 ?>
 
+<?php
+	if(isset($_SESSION["id"])) $userid = $_SESSION["id"];
+	else $userid = "";
+?>
+
 <!DOCTYPE html>
 <html>
 	<body id="page-top">
@@ -20,30 +25,29 @@
             	<a class="nav-link js-scroll-trigger" href="inform.php">공지사항</a>
           	</li>
           	<li class="nav-item">
-            	<a class="nav-link js-scroll-trigger" href="board_view.php">자유게시판</a>
+            	<a class="nav-link js-scroll-trigger" href="free_board_list.php">자유게시판</a>
           	</li>
           	<li class="nav-item">
             	<a class="nav-link js-scroll-trigger" href="buy_together.php">공동구매</a>
           	</li>
+          	
 <?php 
   	if(!$userid){
 ?>
           	<li class="nav-item">
-            	<a class="nav-link js-scroll-trigger" href="login_form.php">로그인</a>
+            	<a class="nav-link js-scroll-trigger" href="member_form.php">회원가입</a>
           	</li>
           	<li class="nav-item">
-            	<a class="nav-link js-scroll-trigger" href="member_form.php">회원가입</a>
+            	<a class="nav-link js-scroll-trigger" href="login_form.php">로그인</a>
           	</li>
 <?php 
   	} else {
-  				$logged = $username."(".$userid.")님 반갑습니다.";
 ?>
-			<li><?=$logged?></li>
-          	<li class="nav-item">
-            	<a class="nav-link js-scroll-trigger" href="logout.php">로그아웃</a>
+			<li class="nav-item">
+            	<a class="nav-link js-scroll-trigger" href="member_modify_form.php">정보수정</a>
           	</li>
           	<li class="nav-item">
-            	<a class="nav-link js-scroll-trigger" href="member_modify_form.php">정보수정</a>
+            	<a class="nav-link js-scroll-trigger" href="logout.php">로그아웃</a>
           	</li>
 <?php 
   	}

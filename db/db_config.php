@@ -3,5 +3,6 @@
 	$db_pw = "12345";
 	$db_name = "test";
 	$db_domain = "localhost";
+	
 	$con = mysqli_connect($db_domain, $db_id, $db_pw, $db_name);
 ?>

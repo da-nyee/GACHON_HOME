@@ -13,6 +13,7 @@
 		<link rel="stylesheet" type="text/css" href="./css/member_form.css?var=<?=$sys['var']?>">
 		<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css?var=<?=$sys['var']?>">
 		<link rel="stylesheet" type="text/css" href="./css/all.css?var=<?=$sys['var']?>">
+		
 		<script src="./js/jquery-1.10.2.js?var=<?=$sys['var']?>"></script>
 		<script src="./js/jquery.slim.min.js?var=<?=$sys['var']?>"></script>
 		<script src="./js/bootstrap.bundle.min.js?var=<?=$sys['var']?>"></script>
@@ -108,7 +109,7 @@
         				
         <!-- Background image for card set in CSS! -->
         <div class="card-body">
-        	<h5 class="card-title text-center">Registration</h5>
+        	<h5 class="card-title text-center">Sign Up</h5>
             <form class="form-signin" name="member_form" id="member_form" method="post" action="member_insert.php">
              <div class="form-label-group">
                 <input type="text" id="inputUserame" name="name" class="form-control" placeholder="Username" autofocus>

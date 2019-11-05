@@ -3,6 +3,13 @@
 	include_once './db/db_config.php';
 ?>
 
+<?php
+	if(isset($_SESSION["name"])) $username = $_SESSION["name"];
+	else $username = "";
+	if(isset($_SESSION["email"])) $useremail = $_SESSION["email"];
+	else $useremail = "";
+?>
+
 <body>
   <!-- Masthead -->
   <header class="masthead">
@@ -13,9 +20,19 @@
           <h1 class="text-uppercase text-white font-weight-bold">가천대학교 기숙사 커뮤니티</h1>
           <hr class="divider my-4">
         </div>
+        
+<?php 
+  	if(!$userid){
+?>
         <div class="col-lg-8 align-self-baseline">
-          <p class="text-white-75 font-weight-light mb-5">아직 기능 구현 중입니다.</p>
-          <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
+          <p class="text-white-75 font-weight-light mb-5">로그인을 해주세요.</p>
+        </div>
+<?php 
+  	} else {
+?>
+        <div class="col-lg-8 align-self-baseline">
+          <p class="text-white-75 font-weight-light mb-5"><?=$logged = $username."(".$useremail.")님 반갑습니다.";?></p>
+          <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">더보기</a>
         </div>
       </div>
     </div>
@@ -182,4 +199,7 @@
       </div>
     </div>
   </section>
+<?php 
+  	}
+?>
 </body>
