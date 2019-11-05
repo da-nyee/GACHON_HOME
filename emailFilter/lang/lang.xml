@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<lang>
+	<item name="allow">
+		<value xml:lang="ko"><![CDATA[사용 가능한 E-mail은 다음과 같습니다.]]></value>
+	</item>
+	<item name="ban">
+		<value xml:lang="ko"><![CDATA[사용이 허락되지 않는 E-mail은 다음과 같습니다.]]></value>
+	</item>
+</lang>
