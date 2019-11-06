@@ -23,7 +23,6 @@
 		<script src="./js/jquery.slim.min.js?var=<?=$sys['var']?>"></script>
 		<script src="./js/bootstrap.bundle.min.js?var=<?=$sys['var']?>"></script>
 		
-		<!--
 		<script>
 			function check_input(){
 				if(!$("#subject").val()){
@@ -41,14 +40,20 @@
 				$("#free_board_form").submit();
 			}
 		</script>
-		-->
 	</head>
 	
 	<body>
 		<header>
 			<?php include_once "header.php";?>
 		</header>
-		<br/><br/>
+		<br/><br/><br/>
+		
+		<div class="container">
+			<!-- Page Heading -->
+    		<h1 class="my-4">자유게시판
+      			<small>글쓰기</small>
+    		</h1>
+    	</div>
 		
 		<!-- Page Content -->
 		<div class="container">
@@ -60,11 +65,11 @@
 	  					</div>
 	  					
 	  					<div class="form-group">					
-							<input type="text" name="subject" id="subject" class="form-control" placeholder="제목" required autofocus>
+							<input type="text" name="subject" id="subject" class="form-control" placeholder="제목">
 	  					</div>
 	  					
 			  			<div class="form-group">
-			    			<textarea name="content" id="content" class="form-control" rows="15" placeholder="내용을 입력해주세요" required></textarea>
+			    			<textarea name="content" id="content" class="form-control" rows="15" placeholder="내용을 입력해주세요"></textarea>
 			  			</div>
 			  			
 			  			<div class="form-group">
@@ -75,7 +80,7 @@
 			  			
 			  			<div class="form-group">
 	    					<div align="right">
-      							<button type="submit" class="btn btn-primary" onclick="check_input()">글쓰기</button>
+      							<button type="button" class="btn btn-primary" onclick="check_input()">작성하기</button>
 	    					</div>
 	  					</div>
 					</form>
