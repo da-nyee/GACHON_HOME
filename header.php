@@ -28,7 +28,7 @@
             	<a class="nav-link js-scroll-trigger" href="free_board_list.php">자유게시판</a>
           	</li>
           	<li class="nav-item">
-            	<a class="nav-link js-scroll-trigger" href="buy_together.php">공동구매</a>
+            	<a class="nav-link js-scroll-trigger" href="buy_together_list.php">공동구매</a>
           	</li>
           	
 <?php 
