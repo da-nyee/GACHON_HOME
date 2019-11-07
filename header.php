@@ -22,7 +22,7 @@
       	<div class="collapse navbar-collapse" id="navbarResponsive">
         	<ul class="navbar-nav ml-auto my-2 my-lg-0">
           	<li class="nav-item">
-            	<a class="nav-link js-scroll-trigger" href="inform.php">공지사항</a>
+            	<a class="nav-link js-scroll-trigger" href="notice_board_list.php">공지사항</a>
           	</li>
           	<li class="nav-item">
             	<a class="nav-link js-scroll-trigger" href="free_board_list.php">자유게시판</a>
