@@ -19,7 +19,21 @@
 	<script src="./js/bootstrap.bundle.min.js?var=<?=$sys['var']?>"></script>
 	
 	<script>
+		function check_input(){
+			if(!$("#id").val()){
+				alert("아이디를 입력하세요!");
+				$("#id").focus();
+				return;
+			}
 
+			if(!$("#pass").val()){
+				alert("비밀번호를 입력하세요!");
+				$("#pass").focus();
+				return;
+			}
+
+			$("#login_form").submit();
+		}
 	</script>
 	
 </head>
@@ -37,18 +51,18 @@
 				<div class="card card-signin my-5">
 					<div class="card-body">
 						<h5 class="card-title text-center">Sign In</h5>
-						<form class="form-signin" name="login_form" method="post" action="login.php">
+						<form class="form-signin" name="login_form" id="login_form" method="post" action="login.php">
 							<div class="form-label-group">
-								<input type="text" id="id" name="id" class="form-control" placeholder="아이디" required autofocus>
+								<input type="text" id="id" name="id" class="form-control" placeholder="아이디">
 								<label for="id">아이디</label>
 							</div>
 							
 							<div class="form-label-group">
-								<input type="password" id="pass" name="pass" class="form-control" placeholder="비밀번호" required>
+								<input type="password" id="pass" name="pass" class="form-control" placeholder="비밀번호">
 								<label for="pass">비밀번호</label>
 							</div>
 							<br/>
-							<button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+							<button class="btn btn-lg btn-primary btn-block text-uppercase" type="button" onclick="check_input()">Sign in</button>
 						</form>
 					</div>
 				</div>

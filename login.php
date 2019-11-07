@@ -47,6 +47,8 @@
 			$_SESSION["name"] = $row["name"];
 			$_SESSION["email"] = $row["email"];
 			
+			$_SESSION["num"] = $row["num"];
+			
 			echo("
 					<script>
 						location.href = 'index.php';
