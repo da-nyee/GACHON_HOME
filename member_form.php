@@ -137,8 +137,9 @@
                 <input type="password" id="inputConfirmPassword" name="pass_confirm" class="form-control" placeholder="Password">
                 <label for="inputConfirmPassword">비밀번호 확인</label>
              </div>
-
-             <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" id="save_frm" onclick="check_input()">Register</button>
+				
+			 <br/>
+             <button class="btn btn-lg btn-primary btn-block text-uppercase" type="button" id="save_frm" onclick="check_input()">Sign up</button>
           	</form>
         </div>
 					</div>
