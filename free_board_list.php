@@ -163,7 +163,7 @@
 		} else{
 ?>
 			<li class="page-item">
-				<a class="page-link" href="free_board_list.php?page=<?=$i?>"><?=$i?></a>
+				<a class="page-link" href="./free_board_list.php?page=<?=$i?>"><?=$i?></a>
 			</li>
 <?php
 		}
@@ -174,7 +174,7 @@
 		$new_page = $page+1;
 ?>
 		<li class="page-item">
-          	<a class="page-link" href="free_board_list.php?page=<?=$new_page?>" aria-label="Next">
+          	<a class="page-link" href="./free_board_list.php?page=<?=$new_page?>" aria-label="Next">
             	<span aria-hidden="true">&raquo;</span>
             	<span class="sr-only">다음</span>
           	</a>

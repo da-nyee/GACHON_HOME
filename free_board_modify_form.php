@@ -1,4 +1,4 @@
-<?php
+<?php 
 	include_once './config.php';
 	include_once './db/db_config.php';
 ?>
@@ -8,6 +8,24 @@
 	else $userid = "";
 ?>
 
+<?php 
+	$num = $_GET["num"];
+	$page = $_GET["page"];
+	
+	$sql = "select
+				*
+			from
+				board
+			where
+				num = $num";
+	
+	$result = mysqli_query($con, $sql);
+	$row = mysqli_fetch_array($result);
+	
+	$subject = $row["subject"];
+	$content = $row["content"];
+	$file_name = $row["file_name"];
+?>
 
 <!DOCTYPE html>
 <html>
@@ -37,7 +55,7 @@
 					return;
 				}
 
-				$("#free_board_form").submit();
+				$("#free_board_modify_form").submit();
 			}
 		</script>
 	</head>
@@ -54,34 +72,49 @@
       			<small>글쓰기</small>
     		</h1>
     	</div>
-		
+
 		<!-- Page Content -->
 		<div class="container">
 		  	<div class="card border-0 shadow my-5">
 		    	<div class="card-body p-5">
-		      		<form class="form-horizontal" id="free_board_form" method="post" action="./free_board_insert.php" enctype="multipart/form-data">
+		      		<form class="form-horizontal" id="free_board_modify_form" method="post" action="free_board_modify.php?num=<?=$num?>&page=<?=$page?>" enctype="multipart/form-data">
 	  					<div class="form-group">						
 							<span id="id">아이디: <?=$userid?></span>
 	  					</div>
 	  					
 	  					<div class="form-group">					
-							<input type="text" name="subject" id="subject" class="form-control" placeholder="제목">
+							<input type="text" name="subject" id="subject" class="form-control" placeholder="제목" value="<?=$subject?>">
 	  					</div>
 	  					
 			  			<div class="form-group">
-			    			<textarea name="content" id="content" class="form-control" rows="15" placeholder="내용을 입력해주세요"></textarea>
+			    			<textarea name="content" id="content" class="form-control" rows="15" placeholder="내용을 입력해주세요"><?=$content?></textarea>
 			  			</div>
-			  			
+<?php 
+	if($file_name){
+?>
+			  			<div class="form-group">
+			  				<span>첨부파일: <?=$file_name?></span>
+			  			</div>
+<?php 
+	}
+?>	
 			  			<div class="form-group">
 				  			<div>
-				  				<input type="file" name="upfile" id="upfile">	
+<?php 
+	if($file_name){
+?>
+				  				<span>변경파일: </span>
+<?php 
+	}
+?>
+				  				<input type="file" name="upfile" id="upfile">
 				  			</div>
 			  			</div>
 			  			
 			  			<div class="form-group">
 	    					<div align="right">
-      							<button type="button" class="btn btn-primary" onclick="check_input()">작성하기</button>
-      							<button type="button" class="btn btn-primary" onclick="location.href='free_board_list.php'">목록보기</button>
+      							<button type="button" class="btn btn-primary" onclick="check_input()">수정하기</button>
+      							<button type="button" class="btn btn-primary" onclick="location.href='./free_board_list.php?page=<?=$page?>'">목록보기</button>
 	    					</div>
 	  					</div>
 					</form>

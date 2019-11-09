@@ -30,7 +30,6 @@
 		<br/><br/><br/>
 		
 		<div class="container">
-			<!-- Page Heading -->
     		<h1 class="my-4">자유게시판</h1>
     	</div>
 		
@@ -77,9 +76,10 @@
 		  	<div class="card border-0 shadow my-5">
 		    	<div class="card-body p-5">
 		      		<form class="form-horizontal" id="free_board_view">
-	  					<div class="form-group">
-	  						<span id="subject"><b>제목: <?=$subject?></b></span>
+	  					<div class="form-group" style="text-align: center;">	
+	  						<span id="subject" style="font-size: 20pt;"><b><?=$subject?></b></span>
 	  					</div>
+	  					<br/>
 	  					
 	  					<div class="form-group">
 	  						<span id="id">작성자: <?=$id?></span>
@@ -115,12 +115,12 @@
 <?php 
 	if($userid == $id){	    					
 ?>
-      							<button type="button" class="btn btn-primary" onclick="location.href='free_board_modify.php?num=<?=$num?>&page=<?=$page?>'">수정하기</button>
-	    						<button type="button" class="btn btn-primary" onclick="location.href='free_board_delete.php?num=<?=$num?>&page=<?=$page?>'">삭제하기</button>
+      							<button type="button" class="btn btn-primary" onclick="location.href='./free_board_modify_form.php?num=<?=$num?>&page=<?=$page?>'">수정하기</button>
+	    						<button type="button" class="btn btn-danger btn-xs" onclick="location.href='./free_board_delete.php?num=<?=$num?>&page=<?=$page?>'">삭제하기</button>
 <?php 
 	}
 ?>
-	    						<button type="button" class="btn btn-primary" onclick="location.href='free_board_list.php?page=<?=$page?>'">목록보기</button>
+	    						<button type="button" class="btn btn-primary" onclick="location.href='./free_board_list.php?page=<?=$page?>'">목록보기</button>
 	    					</div>
 	  					</div>
 					</form>
