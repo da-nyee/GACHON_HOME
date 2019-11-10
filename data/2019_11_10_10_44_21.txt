@@ -1,0 +1,30 @@
+import RPi.GPIO as GPIO
+import time
+
+GPIO.setmode(GPIO.BCM)
+
+GPIO.setup(23, GPIO.IN) # PIR
+GPIO.setup(24, GPIO.OUT) # Buzzer
+
+try:
+	time.sleep(2)
+
+	while True:
+		pir = GPIO.input(23)
+		print pir
+
+		if pir == 1:
+			GPIO.output(24, True)
+			time.sleep(0.5)
+			GPIO.output(24, False)
+			print("motion detected")
+			time.sleep(2)
+		else:
+			GPIO.output(24, False)
+			print("motion undetected")
+			time.sleep(2)
+
+		time.sleep(0.1) # loop delay, should be less than detection
+
+except:
+	GPIO.cleanup()

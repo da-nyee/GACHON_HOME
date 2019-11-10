@@ -6,9 +6,14 @@
 	$id = $_POST["id"];
 	$pass = $_POST["pass"];
 	
-	$sql = "select *
-			from members
-			where id = '$id'";
+	$sql = "select
+				*
+			from
+				members
+			where
+				id = '$id'
+			";
+		
 	$result = mysqli_query($con, $sql);
 	
 	$num_match = mysqli_num_rows($result);
@@ -45,6 +50,7 @@
 			
 			$_SESSION["id"] = $row["id"];
 			$_SESSION["name"] = $row["name"];
+			$_SESSION["nickname"] = $row["nickname"];
 			$_SESSION["email"] = $row["email"];
 			
 			$_SESSION["num"] = $row["num"];

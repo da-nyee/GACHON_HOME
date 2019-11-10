@@ -4,10 +4,10 @@
 ?>
 
 <?php
+	if(isset($_SESSION["nickname"])) $usernickname = $_SESSION["nickname"];
+	else $usernickname = "";
 	if(isset($_SESSION["name"])) $username = $_SESSION["name"];
 	else $username = "";
-	if(isset($_SESSION["email"])) $useremail = $_SESSION["email"];
-	else $useremail = "";
 ?>
 
 <body>
@@ -31,7 +31,7 @@
   	} else {
 ?>
         <div class="col-lg-8 align-self-baseline">
-          <p class="text-white-75 font-weight-light mb-5"><?=$logged = $username."(".$useremail.")님 반갑습니다.";?></p>
+          <p class="text-white-75 font-weight-light mb-5"><?=$logged = $usernickname."(".$username.")님 반갑습니다.";?></p>
           <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">더보기</a>
         </div>
       </div>

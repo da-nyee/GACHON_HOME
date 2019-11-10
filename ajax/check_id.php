@@ -1,11 +1,12 @@
 <?php 
-include_once './db/db_config.php';
+	include_once './db/db_config.php';
 ?>
 
 <?php
 	!empty($_POST['id']) ? $id = $_POST['id'] : $id="";
 	
 	$ret['check'] = false;
+	$ret['id'] = $id;
 	
 	if($id != ""){
 		$sql = "select
@@ -15,6 +16,7 @@ include_once './db/db_config.php';
 				where
 					id = '{$id}'
 				";
+		
 		$result = mysqli_query($con, $sql);
 		$num = mysqli_num_rows($result);	// return the number of rows
 		

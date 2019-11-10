@@ -4,8 +4,8 @@
 ?>
 
 <?php
-	if(isset($_SESSION["id"])) $userid = $_SESSION["id"];
-	else $userid = "";
+	if(isset($_SESSION["nickname"])) $usernickname = $_SESSION["nickname"];
+	else $usernickname = "";
 ?>
 
 <?php 
@@ -79,7 +79,7 @@
 		    	<div class="card-body p-5">
 		      		<form class="form-horizontal" id="free_board_modify_form" method="post" action="free_board_modify.php?num=<?=$num?>&page=<?=$page?>" enctype="multipart/form-data">
 	  					<div class="form-group">						
-							<span id="id">아이디: <?=$userid?></span>
+							<span id="nickname">작성자: <?=$usernickname?></span>
 	  					</div>
 	  					
 	  					<div class="form-group">					

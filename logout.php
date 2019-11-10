@@ -7,6 +7,7 @@
 
 	unset($_SESSION["id"]);
 	unset($_SESSION["name"]);
+	unset($_SESSION["nickname"]);
 	unset($_SESSION["email"]);
 	
 	unset($_SESSION["num"]);

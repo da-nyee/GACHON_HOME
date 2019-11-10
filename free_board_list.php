@@ -97,6 +97,7 @@
 		$num = $row["num"];
 		$id = $row["id"];
 		$name = $row["name"];
+		$nickname = $row["nickname"];
 		$subject = $row["subject"];
 		$regist_day = $row["regist_day"];
 		$hit = $row["hit"];
@@ -110,7 +111,7 @@
       			<tr>
       				<td><?=$number?></td>
       				<td><a href="./free_board_view.php?num=<?=$num?>&page=<?=$page?>"><?=$subject?></a></td>
-      				<td><?=$id?></td>
+      				<td><?=$nickname?></td>
       				<td><?=$file_image?></td>
       				<td><?=$regist_day?></td>
       				<td><?=$hit?></td>

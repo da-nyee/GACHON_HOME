@@ -49,6 +49,7 @@
 	$row = mysqli_fetch_array($result);
 	$id = $row["id"];
 	$name = $row["name"];
+	$nickname = $row["nickname"];
 	$regist_day = $row["regist_day"];
 	$subject = $row["subject"];
 	$content = $row["content"];
@@ -82,7 +83,7 @@
 	  					<br/>
 	  					
 	  					<div class="form-group">
-	  						<span id="id">작성자: <?=$id?></span>
+	  						<span id="id">작성자: <?=$nickname?></span>
 	  						<span id="regist_day" style="float: right">작성일: <?=$regist_day?></span>
 	  					</div>
 	  					<hr>
