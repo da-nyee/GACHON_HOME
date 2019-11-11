@@ -21,6 +21,20 @@
 		<script src="./js/jquery-1.10.2.js?var=<?=$sys['var']?>"></script>
 		<script src="./js/jquery.slim.min.js?var=<?=$sys['var']?>"></script>
 		<script src="./js/bootstrap.bundle.min.js?var=<?=$sys['var']?>"></script>
+	
+		<script>
+			function confirmDelete(){
+				var del = confirm("정말로 삭제하시겠습니까?");
+
+				if(del == true){
+					alert("삭제되었습니다!");
+				}
+				else{
+					alert("취소되었습니다!");
+				}
+				return del;
+			}
+		</script>
 	</head>
 	
 	<body>
@@ -117,7 +131,7 @@
 	if($userid == $id){	    					
 ?>
       							<button type="button" class="btn btn-primary" onclick="location.href='./free_board_modify_form.php?num=<?=$num?>&page=<?=$page?>'">수정하기</button>
-	    						<button type="button" class="btn btn-danger btn-xs" onclick="location.href='./free_board_delete.php?num=<?=$num?>&page=<?=$page?>'">삭제하기</button>
+	    						<a href="./free_board_delete.php?num=<?=$num?>&page=<?=$page?>" class="btn btn-danger btn-xs" onclick="return confirmDelete()">삭제하기</a>
 <?php 
 	}
 ?>
