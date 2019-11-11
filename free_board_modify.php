@@ -76,7 +76,7 @@
 	
 	echo "
 			<script>
-				location.href = 'free_board_list.php?num=$num&page=$page';		
+				location.href = 'free_board_view.php?num=$num&page=$page';		
 			</script>		
 		";
 ?>
