@@ -3,8 +3,6 @@
 ### Preview
 ![gachon_home1](./img/gachon_home1.png)
 
-![gachon_home2](./img/gachon_home2.png)
-
 ### Developer
 - https://github.com/da-nyee (Daeun Lee, 이다은)
 
