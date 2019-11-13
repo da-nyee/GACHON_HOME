@@ -132,12 +132,14 @@
 ?>
       							<button type="button" class="btn btn-primary" onclick="location.href='./free_board_modify_form.php?num=<?=$num?>&page=<?=$page?>'">수정하기</button>
 	    						<a href="./free_board_delete.php?num=<?=$num?>&page=<?=$page?>" class="btn btn-danger btn-xs" onclick="return confirmDelete()">삭제하기</a>
+								<br/><br/>
 <?php 
 	}
 ?>
 	    						<button type="button" class="btn btn-primary" onclick="location.href='./free_board_list.php?page=<?=$page?>'">목록보기</button>
 	    					</div>
 	  					</div>
+						
 					</form>
 		    	</div>
 		  	</div>

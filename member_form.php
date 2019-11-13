@@ -97,7 +97,7 @@
 						$("#pass").select();
 						return;
 				}
-
+				
 				$("#member_form").submit();
 			}
 		</script>
@@ -131,7 +131,7 @@
 				
 				             <div class="form-label-group">
 				                <input type="email" id="email" name="email" class="form-control" placeholder="이메일">
-				                <label for="email">이메일 (ex. @gc.gachon.ac.kr)</label>
+				                <label for="email">이메일 (ex. @gachon.ac.kr @gc.gachon.ac.kr)</label>
 				             </div>
 				             
 				             <hr>

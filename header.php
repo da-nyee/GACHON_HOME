@@ -9,7 +9,7 @@
 ?>
 
 <!DOCTYPE html>
-<html>
+<html>	
 	<body id="page-top">
 	
   	<!-- Navigation -->
