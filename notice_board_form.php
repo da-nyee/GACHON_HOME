@@ -8,6 +8,8 @@
 	else $userid = "";
 	if(isset($_SESSION["num"])) $usernum = $_SESSION["num"];
 	else $usernum = "";
+	if(isset($_SESSION["nickname"])) $usernickname = $_SESSION["nickname"];
+	else $usernickname = "";
 	
 	if($usernum != 1)
 	{
@@ -74,7 +76,7 @@
 		    	<div class="card-body p-5">
 		      		<form class="form-horizontal" id="notice_board_form" method="post" action="notice_board_insert.php" enctype="multipart/form-data">
 	  					<div class="form-group">						
-							<span id="id">아이디: <?=$userid?></span>
+							<span id="id">작성자: <?=$usernickname?></span>
 	  					</div>
 	  					
 	  					<div class="form-group">					

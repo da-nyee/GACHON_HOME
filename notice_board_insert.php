@@ -9,6 +9,8 @@
 	else $userid = "";
 	if(isset($_SESSION["name"])) $username = $_SESSION["name"];
 	else $username = "";
+	if(isset($_SESSION["nickname"])) $usernickname = $_SESSION["nickname"];
+	else $usernickname = "";
 	
 	$subject = $_POST["subject"];
 	$content = $_POST["content"];
@@ -70,6 +72,7 @@
 			set
 				id = '$userid',
 				name = '$username',
+				nickname = '$usernickname',
 				subject = '$subject',
 				content = '$content',
 				regist_day = '$regist_day',
