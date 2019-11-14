@@ -98,8 +98,18 @@
 ?>
       		<tbody>
       			<tr>
+<?php 
+	$boardtime = $row["regist_day"];
+	$timenow = date("Y-m-d (H:i)");
+	
+	if($boardtime == $timenow){
+		$img = "<img src='./img/new.png' alt='new' title='new' />";
+	} else{
+		$img = "";
+	}
+?>
       				<td><?=$number?></td>
-      				<td><a href="./notice_board_view.php?num=<?=$num?>&page=<?=$page?>"><?=$subject?></a></td>
+      				<td><a href="./notice_board_view.php?num=<?=$num?>&page=<?=$page?>"><?=$subject?> <?php echo $img;?></a></td>
       				<td><?=$nickname?></td>
       				<td><?=$file_image?></td>
       				<td><?=$regist_day?></td>
