@@ -9,7 +9,7 @@
     $nickname = $_POST["nickname"];
     $email = $_POST["email"];
     $regist_day = date("Y-m-d (H:i)");
-    
+   
     $allowed = [
     		'gachon.ac.kr',
     		'gc.gachon.ac.kr'
@@ -31,14 +31,14 @@
     	
     	else{
     		$sql = "insert
-    		members
-    		set
-    		id = '$id',
-    		pass = '$pass',
-    		name = '$name',
-    		nickname = '$nickname',
-    		email = '$email',
-    		regist_day = '$regist_day'
+    					members
+    				set
+			    		id = '$id',
+			    		pass = '$pass',
+			    		name = '$name',
+			    		nickname = '$nickname',
+			    		email = '$email',
+			    		regist_day = '$regist_day'
     		";
     		 
     		mysqli_query($con, $sql);
@@ -48,7 +48,7 @@
 		      <script>
 		          location.href = 'index.php';
 		      </script>
-		  ";
+		  	";
     	}
     }
 ?>

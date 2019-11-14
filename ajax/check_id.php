@@ -6,7 +6,6 @@
 	!empty($_POST['id']) ? $id = $_POST['id'] : $id="";
 	
 	$ret['check'] = false;
-	$ret['id'] = $id;
 	
 	if($id != ""){
 		$sql = "select
@@ -18,7 +17,7 @@
 				";
 		
 		$result = mysqli_query($con, $sql);
-		$num = mysqli_num_rows($result);	// return the number of rows
+		$num = mysqli_num_rows($result);
 		
 		if($num == 0)
 		{

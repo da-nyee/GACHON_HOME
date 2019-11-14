@@ -6,13 +6,11 @@
 	$id = $_GET["id"];
 	
 	$pass = $_POST["pass"];
-	$nickname = $_POST["nickname"];
 	
 	$sql = "update
 				members
 			set
-				pass='$pass',
-				nickname='$nickname'
+				pass='$pass'
 			where
 				id='$id'
 			";

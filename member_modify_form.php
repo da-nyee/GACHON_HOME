@@ -24,11 +24,11 @@
 		});
 
 		function check_input(){
-			if(!$("#nickname").val()){
-				alert("닉네임을 입력하세요!");
-				$("#nickname").focus();
-				return;
-			}
+		//	if(!$("#nickname").val()){
+		//		alert("닉네임을 입력하세요!");
+		//		$("#nickname").focus();
+		//		return;
+		//	}
 			
 			if($("#pass").val() !=
 				$("#pass_confirm").val()){
@@ -47,7 +47,7 @@
 	<header>
 		<?php include_once 'header.php';?>
 	</header>
-	<br/><br/>
+	<br/><br/><br/>
 	
 <?php 
 	$sql = "select
@@ -81,7 +81,8 @@
 							</div>
 							
 							<div class="form-label-group">
-								닉네임: <input type="text" id="nickname" name="nickname" class="form-control" placeholder="닉네임" value="<?=$nickname?>">
+								<!-- 닉네임: <input type="text" id="nickname" name="nickname" class="form-control" placeholder="닉네임" value="<?=$nickname?>"> -->
+								닉네임: <?=$nickname?>
 							</div>
 							
 							<div class="form-label-group">

@@ -20,34 +20,6 @@
 	
 		<script>
 			$(function(){
-				$("#id").blur(function(){
-					if($(this).val() == ""){
-						$("#id_check_msg").html("아이디를 입력해주세요.").css("color","red").attr("data-check","0");
-					}
-					else{
-						checkIdAjax();
-					}
-				});
-			});
-
-			function checkIdAjax(){
-				$.ajax({
-					url:"./ajax/check_id.php",
-					type:"post",
-					dataType:"json",
-					data:{"id":$("#id").val()},
-					success:function(data){
-						if(data.check){
-							$("#id_check_msg").html("사용 가능한 아이디입니다.").css("color","blue").attr("data-check","1");
-						}
-						else{
-							$("#id_check_msg").html("중복된 아이디입니다.").css("color","red").attr("data-check","0");
-						}
-					}
-				});
-			}
-			
-			$(function(){
 				$("#save").click(function(){
 					check_input();
 				});
@@ -115,7 +87,6 @@
         			<div class="card card-signin flex-row my-5">
         				<div class="card-img-left d-none d-md-flex"></div>
 
-				        <!-- Background image for card set in CSS! -->
 				        <div class="card-body">
 				        	<h5 class="card-title text-center">Sign Up</h5>
 				            <form class="form-signin" name="member_form" id="member_form" method="post" action="member_insert.php">
@@ -127,8 +98,10 @@
 				             <div class="form-label-group">
 				                <input type="text" id="nickname" name="nickname" class="form-control" placeholder="닉네임">
 				                <label for="nickname">닉네임</label>
+				                <button formaction="member_nickname_check.php" type="submit" class="btn float-right">닉네임 중복확인</button>
 				             </div>
-				
+							
+							 <br/><br/>
 				             <div class="form-label-group">
 				                <input type="email" id="email" name="email" class="form-control" placeholder="이메일">
 				                <label for="email">이메일 (ex. @gachon.ac.kr @gc.gachon.ac.kr)</label>
@@ -138,9 +111,11 @@
 				
 				             <div class="form-label-group">
 				                <input type="text" id="id" name="id" class="form-control" placeholder="아이디">
-				                <label for="id">아이디</label><span id="id_check_msg" data-check="0"></span>
+				                <label for="id">아이디</label>           
+				                <button formaction="member_id_check.php" type="submit" class="btn float-right">아이디 중복확인</button>
 				             </div>
 				             
+				             <br/><br/>
 				             <div class="form-label-group">
 				                <input type="password" id="pass" name="pass" class="form-control" placeholder="비밀번호">
 				                <label for="pass">비밀번호</label>
