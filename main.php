@@ -25,20 +25,21 @@
   	if(!$userid){
 ?>
         <div class="col-lg-8 align-self-baseline">
-          <p class="text-white-75 font-weight-light mb-5">로그인을 해주세요.</p>
+          <p class="text-white-75 font-weight-light mb-5">로그인 해주세요.</p>
         </div>
 <?php 
   	} else {
 ?>
         <div class="col-lg-8 align-self-baseline">
           <p class="text-white-75 font-weight-light mb-5"><?=$logged = $username."(".$useremail.")님 반갑습니다.";?></p>
-          <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">더보기</a>
+          <a class="btn btn-primary btn-xl js-scroll-trigger" href="#services">더보기</a>
         </div>
       </div>
     </div>
   </header>
-
+  
   <!-- About Section -->
+  <!--
   <section class="page-section bg-primary" id="about">
     <div class="container">
       <div class="row justify-content-center">
@@ -51,6 +52,7 @@
       </div>
     </div>
   </section>
+  -->
 
   <!-- Services Section -->
   <section class="page-section" id="services">

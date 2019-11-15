@@ -20,6 +20,60 @@
 	
 		<script>
 			$(function(){
+				$("#id").blur(function(){
+					if($(this).val() != ""){
+						idCheck();
+					}
+				});
+			});
+		
+			function idCheck(){
+				$.ajax({
+					url:"./ajax/check_id.php",
+					type:"post",
+					dataType:"json",
+					data:{"id":$("#id").val()},
+					success:function(data){
+						if(data.check){
+							$("#idcheck").attr("value", "1");
+							alert('사용 가능한 아이디입니다!');
+						}
+						else{
+							$("#idcheck").attr("value", "0");
+							alert('중복된 아이디입니다. 다른 아이디를 입력해 주세요!');
+						}
+					}
+				});
+			}
+
+			$(function(){
+				$("#nickname").blur(function(){
+					if($(this).val() != ""){
+						nicknameCheck();
+					}
+				});
+			});
+
+			function nicknameCheck(){
+				$.ajax({
+					url:"./ajax/check_nickname.php",
+					type:"post",
+					dataType:"json",
+					data:{"nickname":$("#nickname").val()},
+					success:function(data){
+						if(data.check){
+							$("#nicknamecheck").attr("value", "1");
+							alert('사용 가능한 닉네임 입니다!');
+						}
+						else{
+							$("#nicknamecheck").attr("value", "0");
+							alert('중복된 닉네임입니다. 다른 닉네임을 입력해 주세요!');
+						}
+					}
+				});
+			}
+		
+			$(function(){
 				$("#save").click(function(){
 					check_input();
 				});
@@ -38,6 +92,11 @@
 					return;
 				}
 
+				if($("#nicknamecheck").val() == 0){
+					alert("중복된 닉네임을 입력하셨습니다. 다른 닉네임을 입력해 주세요!");
+					return;
+				}
+
 				if(!$("#email").val()){
 					alert("이메일을 입력하세요!");
 					$("#email").focus();
@@ -47,6 +106,11 @@
 				if(!$("#id").val()){
 					alert("아이디를 입력하세요!");
 					$("#id").focus();
+					return;
+				}
+
+				if($("#idcheck").val() == 0){
+					alert("중복된 아이디를 입력하셨습니다. 다른 아이디를 입력해 주세요!");
 					return;
 				}
 
@@ -98,10 +162,9 @@
 				             <div class="form-label-group">
 				                <input type="text" id="nickname" name="nickname" class="form-control" placeholder="닉네임">
 				                <label for="nickname">닉네임</label>
-				                <button formaction="member_nickname_check.php" type="submit" class="btn float-right">닉네임 중복확인</button>
+				                <input type="hidden" id="nicknamecheck" name="nicknamecheck" value="0">
 				             </div>
 							
-							 <br/><br/>
 				             <div class="form-label-group">
 				                <input type="email" id="email" name="email" class="form-control" placeholder="이메일">
 				                <label for="email">이메일 (ex. @gachon.ac.kr @gc.gachon.ac.kr)</label>
@@ -111,11 +174,10 @@
 				
 				             <div class="form-label-group">
 				                <input type="text" id="id" name="id" class="form-control" placeholder="아이디">
-				                <label for="id">아이디</label>           
-				                <button formaction="member_id_check.php" type="submit" class="btn float-right">아이디 중복확인</button>
+				                <label for="id">아이디</label>
+				                <input type="hidden" id="idcheck" name="idcheck" value="0">
 				             </div>
 				             
-				             <br/><br/>
 				             <div class="form-label-group">
 				                <input type="password" id="pass" name="pass" class="form-control" placeholder="비밀번호">
 				                <label for="pass">비밀번호</label>

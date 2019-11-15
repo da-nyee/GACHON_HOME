@@ -3,17 +3,17 @@
 ?>
 
 <?php
-	!empty($_POST['id']) ? $id = $_POST['id'] : $id = "";
+	!empty($_POST['nickname']) ? $nickname = $_POST['nickname'] : $nickname = "";
 	
 	$ret['check'] = false;
 	
-	if($id != ""){
+	if($nickname != ""){
 		$sql = "select
-					id
+					nickname
 				from
 					members
 				where
-					id = '{$id}'
+					nickname = '{$nickname}'
 				";
 		
 		$result = mysqli_query($con, $sql);
