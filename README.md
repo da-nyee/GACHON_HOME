@@ -3,6 +3,9 @@
 ### Preview
 ![gachon_home1](./img/gachon_home1.png)
 
+### Development Environment
+- Apache + MySQL + PHP
+
 ### Developer
 - https://github.com/da-nyee (Daeun Lee, 이다은)
 
