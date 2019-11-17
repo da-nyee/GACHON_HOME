@@ -32,7 +32,7 @@
 ?>
         <div class="col-lg-8 align-self-baseline">
           <p class="text-white-75 font-weight-light mb-5"><?=$logged = $username."(".$useremail.")님 반갑습니다.";?></p>
-          <a class="btn btn-primary btn-xl js-scroll-trigger" href="#services">더보기</a>
+          <a class="btn btn-primary btn-xl js-scroll-trigger" href="#contact">더보기</a>
         </div>
       </div>
     </div>
@@ -55,6 +55,7 @@
   -->
 
   <!-- Services Section -->
+  <!--
   <section class="page-section" id="services">
     <div class="container">
       <h2 class="text-center mt-0">At Your Service</h2>
@@ -91,8 +92,10 @@
       </div>
     </div>
   </section>
-
+  -->
+	
   <!-- Portfolio Section -->
+  <!--
   <section id="portfolio">
     <div class="container-fluid p-0">
       <div class="row no-gutters">
@@ -177,6 +180,7 @@
       </div>
     </div>
   </section>
+  -->
 
   <!-- Contact Section -->
   <section class="page-section" id="contact">
