@@ -39,61 +39,100 @@
 		<?php include_once 'header.php';?>
 	</header>
 	<br/><br/><br/>
-		
+	
 	<!-- Page Content -->
     <div class="container">
 
     	<!-- Page Heading -->
     	<h1 class="my-4">공동구매</h1>
-    	
     	<br/>
     	
-		<div class="row">
-		<!-- Team Member 1 -->
-			<div class="col-xl-3 col-md-6 mb-4">
-		      	<div class="card border-0 shadow">
-		        	<img src="https://source.unsplash.com/TMgQMXoglsM/500x350" class="card-img-top" alt="...">
-		        	<div class="card-body text-center">
-		          		<h5 class="card-title mb-0">Team Member</h5>
-		          		<div class="card-text text-black-50">Web Developer</div>
-		        	</div>
-		      	</div>
-		    </div>
+      	<!-- table -->
+      	<table class="table table-hover">
+      		<thead>
+      		<tr>
+      			<th>번호</th>
+      			<th>제목</th>
+      			<th>작성자</th>
+      			<th>첨부</th>
+      			<th>작성일</th>
+      			<th>조회수</th>
+      		</tr>
+      		</thead>
+<?php 
+	if(isset($_GET["page"])) $page = $_GET["page"];
+	else $page = 1;
+	
+	$sql = "select
+				*
+			from
+				buy
+			order by
+				num desc";
+	
+	$result = mysqli_query($con, $sql);
+	$total_record = mysqli_num_rows($result);	// 전체 글 수
+	
+	$scale = 5;
+	
+	// 전체 페이지 수($total_page) 계산
+	if($total_record % $scale == 0)
+		$total_page = floor($total_record/$scale);
+	else
+		$total_page = floor($total_record/$scale) + 1;
+	
+	// 표시할 페이지($page)에 따라 $start 계산
+	$start = ($page - 1) * $scale;
+	
+	$number = $total_record - $start;
+	
+	for($i = $start; $i < $start+$scale && $i < $total_record; $i++)
+	{
+		mysqli_data_seek($result, $i);
 		
-		<!-- Team Member 2 -->
-		    <div class="col-xl-3 col-md-6 mb-4">
-		      	<div class="card border-0 shadow">
-		        	<img src="https://source.unsplash.com/9UVmlIb0wJU/500x350" class="card-img-top" alt="...">
-		        	<div class="card-body text-center">
-		          		<h5 class="card-title mb-0">Team Member</h5>
-		          		<div class="card-text text-black-50">Web Developer</div>
-		        	</div>
-		      	</div>
-		    </div>
+		// 가져올 레코드로 포인터 이동
+		$row = mysqli_fetch_array($result);
 		
-		<!-- Team Member 3 -->
-		    <div class="col-xl-3 col-md-6 mb-4">
-		    	<div class="card border-0 shadow">
-		        	<img src="https://source.unsplash.com/sNut2MqSmds/500x350" class="card-img-top" alt="...">
-		        	<div class="card-body text-center">
-		          		<h5 class="card-title mb-0">Team Member</h5>
-		          	<div class="card-text text-black-50">Web Developer</div>
-		        	</div>
-		      	</div>
-		    </div>
+		// 하나의 레코드 가져오기
+		$num = $row["num"];
+		$id = $row["id"];
+		$name = $row["name"];
+		$nickname = $row["nickname"];
+		$subject = $row["subject"];
+		$regist_day = $row["regist_day"];
+		$hit = $row["hit"];
 		
-		<!-- Team Member 4 -->
-		    <div class="col-xl-3 col-md-6 mb-4">
-		      	<div class="card border-0 shadow">
-		        	<img src="https://source.unsplash.com/ZI6p3i9SbVU/500x350" class="card-img-top" alt="...">
-		        	<div class="card-body text-center">
-		          		<h5 class="card-title mb-0">Team Member</h5>
-		          		<div class="card-text text-black-50">Web Developer</div>
-		        	</div>
-		      	</div>
-		    </div>
-		</div>
-		<!-- /.row -->
+		if($row["file_name"])
+			$file_image = "<img src='./img/file.gif'>";
+		else
+			$file_image = " ";
+?>
+      		<tbody>
+      			<tr>
+<?php 
+	$boardtime = $row["regist_day"];
+	$timenow = date("Y-m-d (H:i)");
+	
+	if($boardtime == $timenow){
+		$img = "<img src='./img/new.png' alt='new' title='new' />";
+	} else{
+		$img = "";
+	}
+?>
+      				<td><?=$number?></td>
+      				<td><a href="./buy_together_view.php?num=<?=$num?>&page=<?=$page?>"><?=$subject?> <?php echo $img;?></a></td>
+      				<td><?=$name?></td>
+      				<td><?=$file_image?></td>
+      				<td><?=$regist_day?></td>
+      				<td><?=$hit?></td>
+      			</tr>
+      		</tbody>
+<?php 
+		$number--;
+	}
+	mysqli_close($con);
+?>
+      	</table>
       	
       	<br/>
       	<div class="form-group">
@@ -105,27 +144,59 @@
 		<br/>
       	<!-- Pagination -->
       	<ul class="pagination justify-content-center">
-        	<li class="page-item">
-          		<a class="page-link" href="#" aria-label="Previous">
-            		<span aria-hidden="true">&laquo;</span>
-            		<span class="sr-only">Previous</span>
-          		</a>
-        	</li>
-        	<li class="page-item">
-          		<a class="page-link" href="#">1</a>
-        	</li>
-        	<li class="page-item">
-          		<a class="page-link" href="#">2</a>
-        	</li>
-        	<li class="page-item">
-          		<a class="page-link" href="#">3</a>
-        	</li>
-        	<li class="page-item">
-          		<a class="page-link" href="#" aria-label="Next">
-            		<span aria-hidden="true">&raquo;</span>
-            	<span class="sr-only">Next</span>
-          		</a>
-        	</li>
+<?php 
+	if($total_page >= 2 && $page >= 2)
+	{
+		$new_page = $page-1;
+?>
+		<li class="page-item">
+          	<a class="page-link" href="buy_together_list.php?page=<?=$new_page?>" aria-label="Previous">
+            	<span aria-hidden="true">&laquo;</span>
+            	<span class="sr-only">이전</span>
+          	</a>
+        </li>
+<?php	
+	} else{
+?>
+		<li class="page-item">&nbsp;</li>
+<?php
+	}
+	
+	for($i = 1; $i <= $total_page; $i++)
+	{
+		if($page == $i)	// 현재 페이지 번호 링크 안 함
+		{
+?>
+			<li class="page-item">
+				<a class="page-link"><?=$i?></a>
+			</li>
+<?php
+		} else{
+?>
+			<li class="page-item">
+				<a class="page-link" href="./buy_together_list.php?page=<?=$i?>"><?=$i?></a>
+			</li>
+<?php
+		}
+	}
+	
+	if($total_page >= 2 && $page != $total_page)
+	{
+		$new_page = $page+1;
+?>
+		<li class="page-item">
+          	<a class="page-link" href="./buy_together_list.php?page=<?=$new_page?>" aria-label="Next">
+            	<span aria-hidden="true">&raquo;</span>
+            	<span class="sr-only">다음</span>
+          	</a>
+        </li>
+<?php
+	} else{
+?>
+		<li class="page-item">&nbsp;</li>
+<?php 
+	}
+?>      	
       	</ul>
     </div>
     <!-- /.container -->

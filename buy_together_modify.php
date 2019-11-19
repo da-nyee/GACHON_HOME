@@ -1,20 +1,14 @@
-<?php
+<?php 
 	include_once './config.php';
 	include_once './db/db_config.php';
 ?>
 
-<meta charset="utf-8">
 <?php 
-	if(isset($_SESSION["id"])) $userid = $_SESSION["id"];
-	else $userid = "";
-	if(isset($_SESSION["name"])) $username = $_SESSION["name"];
-	else $username = "";
+	$num = $_GET["num"];
+	$page = $_GET["page"];
 	
 	$subject = $_POST["subject"];
 	$content = $_POST["content"];
-	
-	$subject = htmlspecialchars($subject, ENT_QUOTES);
-	$content = htmlspecialchars($content, ENT_QUOTES);
 	
 	$regist_day = date("Y-m-d (H:i)");
 	
@@ -31,12 +25,12 @@
 		$file = explode(".", $upfile_name); // .을 기준으로 나눔
 		$file_name = $file[0];	// 파일명
 		$file_ext  = $file[1];	// 파일 확장자
-		
+	
 		$new_file_name = date("Y_m_d_H_i_s");
 		$new_file_name = $new_file_name;
 		$copied_file_name = $new_file_name.".".$file_ext;
 		$uploaded_file = $upload_dir.$copied_file_name;
-		
+	
 		if( $upfile_size  > 1000000000 ) {
 			echo("
 				<script>
@@ -46,7 +40,7 @@
 				");
 			exit;
 		}
-		
+	
 		if (!move_uploaded_file($upfile_tmp_name, $uploaded_file) )		// ex. ./data/2019_11_01_14_20_36.txt // if not , 쓰기권한이 없는 경우일 수 있음 especially Linux !!
 		{
 			echo("
@@ -65,26 +59,24 @@
 		$copied_file_name = "";
 	}
 	
-	$sql = "insert
+	$sql = "update
 				buy
 			set
-				id = '$userid',
-				name = '$username',
 				subject = '$subject',
 				content = '$content',
 				regist_day = '$regist_day',
-				hit = 0,
 				file_name = '$upfile_name',
 				file_type = '$upfile_type',
 				file_copied = '$copied_file_name'
-			";
+			where
+				num = $num";
 	
 	mysqli_query($con, $sql);
 	mysqli_close($con);
 	
 	echo "
-		<script>
-			location.href = 'buy_together_list.php';
-		</script>				
-	";
+			<script>
+				location.href = 'buy_together_view.php?num=$num&page=$page';		
+			</script>		
+		";
 ?>
