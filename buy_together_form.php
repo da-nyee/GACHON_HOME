@@ -4,8 +4,6 @@
 ?>
 
 <?php
-	if(isset($_SESSION["id"])) $userid = $_SESSION["id"];
-	else $userid = "";
 	if(isset($_SESSION["name"])) $username = $_SESSION["name"];
 	else $username = "";
 ?>
@@ -39,6 +37,12 @@
 					return;
 				}
 
+				if(!$("#upfile").val()){
+					alert("공동구매에서 파일 첨부는 필수입니다!");
+					$("#upfile").focus();
+					return;
+				}
+
 				$("#buy_together_form").submit();
 			}
 		</script>
@@ -61,9 +65,9 @@
 		<div class="container">
 		  	<div class="card border-0 shadow my-5">
 		    	<div class="card-body p-5">
-		      		<form class="form-horizontal" id="buy_together_form" method="post" action="buy_together_insert.php" enctype="multipart/form-data">
+		      		<form class="form-horizontal" id="buy_together_form" method="post" action="./buy_together_insert.php" enctype="multipart/form-data">
 	  					<div class="form-group">						
-							<span id="id">이름: <?=$username?></span>
+							<span id="nickname">작성자: <?=$username?></span>
 	  					</div>
 	  					
 	  					<div class="form-group">					
@@ -83,6 +87,7 @@
 			  			<div class="form-group">
 	    					<div align="right">
       							<button type="button" class="btn btn-primary" onclick="check_input()">작성하기</button>
+      							<button type="button" class="btn btn-primary" onclick="location.href='buy_together_list.php'">목록보기</button>
 	    					</div>
 	  					</div>
 					</form>
