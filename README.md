@@ -1,7 +1,7 @@
 ## GACHON HOME (Server Programming Final Project)
 
 ### Preview
-![gachon_home1](./img/gachon_home1.png)
+![gachon_home1](./img/gachon_home3.png)
 
 ### Development Environment
 - Apache + MySQL + PHP
