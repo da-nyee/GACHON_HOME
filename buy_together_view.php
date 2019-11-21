@@ -142,12 +142,6 @@
 	    					</div>
 	  					</div>
 					</form>
-					
-					<hr>
-					<div class="container">
-						<h5><b>댓글</b></h5>
-					</div>
-
 		    	</div>
 		  	</div>
 		</div>

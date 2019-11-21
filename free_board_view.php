@@ -17,7 +17,7 @@
 			
 		<link rel="stylesheet" type="text/css" href="./css/free_board_form.css?var=<?=$sys['var']?>">
 		<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css?var=<?=$sys['var']?>">
-			
+		
 		<script src="./js/jquery-1.10.2.js?var=<?=$sys['var']?>"></script>
 		<script src="./js/jquery.slim.min.js?var=<?=$sys['var']?>"></script>
 		<script src="./js/bootstrap.bundle.min.js?var=<?=$sys['var']?>"></script>
@@ -139,13 +139,12 @@
 	    						<button type="button" class="btn btn-primary" onclick="location.href='./free_board_list.php?page=<?=$page?>'">목록보기</button>
 	    					</div>
 	  					</div>
-						
 					</form>
 		    	</div>
 		  	</div>
 		</div>
 		<br/>
-					
+		
 		<footer>
 			<?php include_once 'footer.php';?>
 		</footer>
