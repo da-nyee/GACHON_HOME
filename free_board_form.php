@@ -8,7 +8,6 @@
 	else $usernickname = "";
 ?>
 
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -64,7 +63,7 @@
 							<span id="nickname">작성자: <?=$usernickname?></span>
 	  					</div>
 	  					
-	  					<div class="form-group">					
+	  					<div class="form-group">
 							<input type="text" name="subject" id="subject" class="form-control" placeholder="제목">
 	  					</div>
 	  					
