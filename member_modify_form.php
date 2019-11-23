@@ -23,13 +23,7 @@
 			});
 		});
 
-		function check_input(){
-		//	if(!$("#nickname").val()){
-		//		alert("닉네임을 입력하세요!");
-		//		$("#nickname").focus();
-		//		return;
-		//	}
-			
+		function check_input(){		
 			if($("#pass").val() !=
 				$("#pass_confirm").val()){
 					alert("비밀번호가 일치하지 않습니다.\n다시 입력해 주세요!");
@@ -81,7 +75,6 @@
 							</div>
 							
 							<div class="form-label-group">
-								<!-- 닉네임: <input type="text" id="nickname" name="nickname" class="form-control" placeholder="닉네임" value="<?=$nickname?>"> -->
 								닉네임: <?=$nickname?>
 							</div>
 							
